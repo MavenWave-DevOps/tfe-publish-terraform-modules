@@ -5,14 +5,14 @@ This GitHub action publishes modules to a Terraform Registry by interacting with
 # Usage 
 
 ```
-- uses: seeeverything/publish-terraform-modules@1.0.0
+- uses: MavenWaveDevops/tfe-publish-terraform-modules@1.0.0
   with:
     # List of modules to publish, each module has to be a folder in the root repository. 
     modules_list: '[]'
 
     # Module provider
-    # Default: aws
-    provider: "aws"
+    # Default: gcp
+    provider: "gcp"
 
     # Terraform Registry organization or namespace     
     namespace: ""
@@ -78,10 +78,10 @@ jobs:
 
       - name: publish
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        uses: seeeverything/publish-terraform-modules@1.0.0
+        uses: MavenWaveDevOps/publish-terraform-modules@1.0.0
         with:
           modules_list: ${{ steps.get-files-changed.outputs.FOLDERS_LIST }}
-          provider: "aws"
+          provider: "gcp"
           namespace: "organization"
           token: ${{ secrets.TF_CLOUD_API_TOKEN }}
           recreate: "false"
