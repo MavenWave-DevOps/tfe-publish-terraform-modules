@@ -9,7 +9,7 @@ from models.version import Version
 from log import Log
 
 TERRAFORM_REGISTRY = os.getenv(
-    "TERRAFORM_REGISTRY", "https://infra.mavenwave.net/api/v2/organizations"
+    "TERRAFORM_REGISTRY", "https://app.terraform.io/api/v2/organizations"
 )
 
 
